@@ -1,13 +1,13 @@
 Gem::Specification.new do |s|
   s.name        = 'num4hypothtst'
   s.version     = '0.0.1'
-  s.date        = '2023-10-02'
+  s.date        = '2023-10-03'
   s.summary     = 'num for statistical test'
   s.description = 'num for test of statistical hypothesis!'
   s.platform    = 'java'
   s.authors       = ["siranovel"]
   s.email         = "siranovel@gmail.com"
-  s.homepage      = "http://github.com/siranovel/stdy4act"
+  s.homepage      = "http://github.com/siranovel/num4hypothtst"
   s.license       = "MIT"
   s.files         = ["LICENSE", "Gemfile", "CHANGELOG.md"]
   s.files         += Dir.glob("{lib,ext}/**/*")
