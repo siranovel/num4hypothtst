@@ -20,7 +20,7 @@ public class RightSideTest implements HypothTest {
 
         return evaluation(statistic, r_val);
     }
-    public boolean normDistest(double statistic, double a) {
+    public boolean normDistTest(double statistic, double a) {
         NormalDistribution norDist = new NormalDistribution(0, 1);
         double r_val = norDist.inverseCumulativeProbability(1.0 - a);
 
@@ -31,6 +31,17 @@ public class RightSideTest implements HypothTest {
         double r_val = fDist.inverseCumulativeProbability(1.0 - a);
 
         return evaluation(statistic, r_val);
+    }
+    public boolean gnTest(double statistic, int n, double a) {
+        double r_val = calcGnValue(n, a);
+        return evaluation(statistic, r_val);
+    }
+    private double calcGnValue(int n, double a) {
+        TDistribution tDist = new TDistribution(n);
+        double t = tDist.inverseCumulativeProbability(a / n);
+        double gn = (n - 1) * t / Math.sqrt(n * (n - 2 + t * t));
+
+        return Math.abs(gn);
     }
     private boolean evaluation(double statistic, double r_val) {
         boolean ret = true;

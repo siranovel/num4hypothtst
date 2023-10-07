@@ -21,7 +21,7 @@ public class LeftSideTest implements HypothTest {
 
         return evaluation(statistic, l_val);
     }
-    public boolean normDistest(double statistic, double a) {
+    public boolean normDistTest(double statistic, double a) {
         NormalDistribution norDist = new NormalDistribution(0, 1);
         double l_val = norDist.inverseCumulativeProbability(a);
 
@@ -33,6 +33,10 @@ public class LeftSideTest implements HypothTest {
 
         return evaluation(statistic, l_val);
     }
+    public boolean gnTest(double statistic, int n, double a) {
+        return false;
+    }
+
     private boolean evaluation(double statistic, double l_val) {
         boolean ret = true;
 
