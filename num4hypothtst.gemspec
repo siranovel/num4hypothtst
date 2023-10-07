@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name        = 'num4hypothtst'
-  s.version     = '0.0.2'
-  s.date        = '2023-10-03'
+  s.version     = '0.0.3'
+  s.date        = '2023-10-02'
   s.summary     = 'num for statistical test'
   s.description = 'num for test of statistical hypothesis!'
   s.platform    = 'java'
