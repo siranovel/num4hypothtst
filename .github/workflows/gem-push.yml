@@ -37,16 +37,15 @@ jobs:
     - name: Set up Ruby 3.1
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: jruby
-    - run: bundle install
+        ruby-version: 3.1.1
     - name: Publish to GPR
       run: |
         mkdir -p $HOME/.gem
         touch $HOME/.gem/credentials
         printf -- "---\n:github: ${GEM_HOST_API_KEY}\n" > $HOME/.gem/credentials
         chmod 0600 $HOME/.gem/credentials
-        ruby -S gem build *.gemspec
-        ruby -S gem push --KEY github --host https://rubygems.pkg.github.com/${OWNER} *.gem
+        gem build *.gemspec
+        gem push --KEY github --host https://rubygems.pkg.github.com/${OWNER} *.gem
       env:
         GEM_HOST_API_KEY: "Bearer ${{secrets.GITHUB_TOKEN}}"
         OWNER: ${{ github.repository_owner }}
@@ -57,7 +56,7 @@ jobs:
         touch $HOME/.gem/credentials
         printf -- "---\n:rubygems_api_key: ${GEM_HOST_API_KEY}\n" > $HOME/.gem/credentials
         chmod 0600 $HOME/.gem/credentials
-        ruby -S gem build *.gemspec
-        ruby -S gem push --otp github *.gem
+        gem build *.gemspec
+        gem push --otp github *.gem
       env:
         GEM_HOST_API_KEY: "${{secrets.RUBYGEMS_AUTH_TOKEN}}"
