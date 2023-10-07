@@ -17,42 +17,52 @@ module Num4HypothTestLib
         # T検定
         #
         # @overload tDistTest(statistic, df, a)
-        #   @param [double] statistic 統計量
+        #   @param [double] statistic 検定統計量
         #   @param [int]    df        自由度
         #   @param [double] a         有意水準
-        #   return [boolean] 検定結果(true:棄却域内 false:棄却域外)
+        #   @return [boolean] 検定結果(true:棄却域内 false:棄却域外)
         def tDistTest(statistic, df, a)
             return @hypothTest.tDistTest(statistic, df, a)
         end
         # 階2乗検定
         #
         # @overload chi2DistTest(statistic, df, a)
-        #   @param [double] statistic 統計量
+        #   @param [double] statistic 検定統計量
         #   @param [int]    df        自由度
         #   @param [double] a         有意水準
-        #   return [boolean] 検定結果(true:棄却域内 false:棄却域外)
+        #   @return [boolean] 検定結果(true:棄却域内 false:棄却域外)
         def chi2DistTest(statistic, df, a)
             return @hypothTest.chi2DistTest(statistic, df, a)
         end
         # 標準正規分布検定
         #
-        # @overload normDistest(statistic, a)
-        #   @param [double] statistic 統計量
+        # @overload normDistTest(statistic, a)
+        #   @param [double] statistic 検定統計量
         #   @param [double] a         有意水準
-        #   return [boolean] 検定結果(true:棄却域内 false:棄却域外)
-        def normDistest(statistic, a)
-            return @hypothTest.normDistest(statistic, a)
+        #   @return [boolean] 検定結果(true:棄却域内 false:棄却域外)
+        def normDistTest(statistic, a)
+            return @hypothTest.normDistTest(statistic, a)
         end
         # F検定
         #
         # @overload fDistTest(statistic, nf, df, a)
-        #   @param [double] statistic 統計量
+        #   @param [double] statistic 検定統計量
         #   @param [int]    nf        自由度
         #   @param [int]    df        自由度
         #   @param [double] a         有意水準
-        #   return [boolean] 検定結果(true:棄却域内 false:棄却域外)
+        #   @return [boolean] 検定結果(true:棄却域内 false:棄却域外)
         def fDistTest(statistic, nf, df, a)
             return @hypothTest.fDistTest(statistic, nf, df, a)
+        end
+        # グラブス・スミルノフの外れ値の検定
+        #
+        # @overload gnTest(statistic, n, a)
+        #   @param [double] statistic 検定統計量
+        #   @param [int]    n         自由度
+        #   @param [double] a         有意水準
+        #   @return [boolean] 検定結果(true:棄却域内 false:棄却域外)
+        def gnTest(statistic, n, a)
+            return @hypothTest.gnTest(statistic, n, a)
         end
     end
     # 片側(右側)検定
@@ -63,42 +73,52 @@ module Num4HypothTestLib
         # T検定
         #
         # @overload tDistTest(statistic, df, a)
-        #   @param [double] statistic 統計量
+        #   @param [double] statistic 検定統計量
         #   @param [int]    df        自由度
         #   @param [double] a         有意水準
-        #   return [boolean] 検定結果(true:棄却域内 false:棄却域外)
+        #   @return [boolean] 検定結果(true:棄却域内 false:棄却域外)
         def tDistTest(statistic, df, a)
             return @hypothTest.tDistTest(statistic, df, a)
         end
         # 階2乗検定
         #
         # @overload chi2DistTest(statistic, df, a)
-        #   @param [double] statistic 統計量
+        #   @param [double] statistic 検定統計量
         #   @param [int]    df        自由度
         #   @param [double] a         有意水準
-        #   return [boolean] 検定結果(true:棄却域内 false:棄却域外)
+        #   @return [boolean] 検定結果(true:棄却域内 false:棄却域外)
         def chi2DistTest(statistic, df, a)
             return @hypothTest.chi2DistTest(statistic, df, a)
         end
         # 標準正規分布検定
         #
-        # @overload normDistest(statistic, a)
-        #   @param [double] statistic 統計量
+        # @overload normDistTest(statistic, a)
+        #   @param [double] statistic 検定統計量
         #   @param [double] a         有意水準
-        #   return [boolean] 検定結果(true:棄却域内 false:棄却域外)
-        def normDistest(statistic, a)
-            return @hypothTest.normDistest(statistic, a)
+        #   @return [boolean] 検定結果(true:棄却域内 false:棄却域外)
+        def normDistTest(statistic, a)
+            return @hypothTest.normDistTest(statistic, a)
         end
         # F検定
         #
         # @overload fDistTest(statistic, nf, df, a)
-        #   @param [double] statistic 統計量
+        #   @param [double] statistic 検定統計量
         #   @param [int]    nf        自由度
         #   @param [int]    df        自由度
         #   @param [double] a         有意水準
-        #   return [boolean] 検定結果(true:棄却域内 false:棄却域外)
+        #   @return [boolean] 検定結果(true:棄却域内 false:棄却域外)
         def fDistTest(statistic, nf, df, a)
             return @hypothTest.fDistTest(statistic, nf, df, a)
+        end
+        # グラブス・スミルノフの外れ値の検定
+        #
+        # @overload gnTest(statistic, n, a)
+        #   @param [double] statistic 検定統計量
+        #   @param [int]    n         自由度
+        #   @param [double] a         有意水準
+        #   @return [boolean] 検定結果(true:棄却域内 false:棄却域外)
+        def gnTest(statistic, n, a)
+            return @hypothTest.gnTest(statistic, n, a)
         end
     end
     # 片側(左側)検定
@@ -109,40 +129,40 @@ module Num4HypothTestLib
         # T検定
         #
         # @overload tDistTest(statistic, df, a)
-        #   @param [double] statistic 統計量
+        #   @param [double] statistic 検定統計量
         #   @param [int]    df        自由度
         #   @param [double] a         有意水準
-        #   return [boolean] 検定結果(true:棄却域内 false:棄却域外)
+        #   @return [boolean] 検定結果(true:棄却域内 false:棄却域外)
         def tDistTest(statistic, df, a)
             return @hypothTest.tDistTest(statistic, df, a)
         end
         # 階2乗検定
         #
         # @overload chi2DistTest(statistic, df, a)
-        #   @param [double] statistic 統計量
+        #   @param [double] statistic 検定統計量
         #   @param [int]    df        自由度
         #   @param [double] a         有意水準
-        #   return [boolean] 検定結果(true:棄却域内 false:棄却域外)
+        #   @return [boolean] 検定結果(true:棄却域内 false:棄却域外)
         def chi2DistTest(statistic, df, a)
             return @hypothTest.chi2DistTest(statistic, df, a)
         end
         # 標準正規分布検定
         #
-        # @overload normDistest(statistic, a)
-        #   @param [double] statistic 統計量
+        # @overload normDistTest(statistic, a)
+        #   @param [double] statistic 検定統計量
         #   @param [double] a         有意水準
-        #   return [boolean] 検定結果(true:棄却域内 false:棄却域外)
-        def normDistest(statistic, a)
-            return @hypothTest.normDistest(statistic, a)
+        #   @return [boolean] 検定結果(true:棄却域内 false:棄却域外)
+        def normDistTest(statistic, a)
+            return @hypothTest.normDistTest(statistic, a)
         end
         # F検定
         #
         # @overload fDistTest(statistic, nf, df, a)
-        #   @param [double] statistic 統計量
+        #   @param [double] statistic 検定統計量
         #   @param [int]    nf        自由度
         #   @param [int]    df        自由度
         #   @param [double] a         有意水準
-        #   return [boolean] 検定結果(true:棄却域内 false:棄却域外)
+        #   @return [boolean] 検定結果(true:棄却域内 false:棄却域外)
         def fDistTest(statistic, nf, df, a)
             return @hypothTest.fDistTest(statistic, nf, df, a)
         end
