@@ -4,6 +4,8 @@ num4hypothtst
 
 ## decscription ##
 
+詳細は、https://siranovel.github.io/mydocs/num4hypothtst
+
 ## Demo ##
 
 ## VS. ##
