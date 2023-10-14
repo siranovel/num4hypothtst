@@ -1,8 +1,10 @@
+package hypothtst;
+
 import org.apache.commons.math3.distribution.TDistribution;
 import org.apache.commons.math3.distribution.ChiSquaredDistribution;
 import org.apache.commons.math3.distribution.NormalDistribution;
 import org.apache.commons.math3.distribution.FDistribution;
-
+// 片側検定(右側)
 public class RightSideTest implements HypothTest {
     private static HypothTest hupothTest = new RightSideTest();
     public static HypothTest getInstance() {
@@ -31,17 +33,6 @@ public class RightSideTest implements HypothTest {
         double r_val = fDist.inverseCumulativeProbability(1.0 - a);
 
         return evaluation(statistic, r_val);
-    }
-    public boolean gnTest(double statistic, int n, double a) {
-        double r_val = calcGnValue(n, a);
-        return evaluation(statistic, r_val);
-    }
-    private double calcGnValue(int n, double a) {
-        TDistribution tDist = new TDistribution(n);
-        double t = tDist.inverseCumulativeProbability(a / n);
-        double gn = (n - 1) * t / Math.sqrt(n * (n - 2 + t * t));
-
-        return Math.abs(gn);
     }
     private boolean evaluation(double statistic, double r_val) {
         boolean ret = true;

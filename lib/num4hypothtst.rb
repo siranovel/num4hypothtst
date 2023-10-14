@@ -2,9 +2,10 @@ require 'java'
 require 'num4hypothtst.jar'
 require 'commons-math3-3.6.1.jar'
 
-java_import 'TwoSideTest'
-java_import 'RightSideTest'
-java_import 'LeftSideTest'
+java_import 'hypothtst.TwoSideTest'
+java_import 'hypothtst.RightSideTest'
+java_import 'hypothtst.LeftSideTest'
+java_import 'hypothtst.GrubbsTest'
 
 # 統計的仮設検定のためのライブラリ
 #  (Apache commoms math3使用)
@@ -54,16 +55,6 @@ module Num4HypothTestLib
         def fDistTest(statistic, nf, df, a)
             return @hypothTest.fDistTest(statistic, nf, df, a)
         end
-        # グラブス・スミルノフの外れ値の検定
-        #
-        # @overload gnTest(statistic, n, a)
-        #   @param [double] statistic 検定統計量
-        #   @param [int]    n         自由度
-        #   @param [double] a         有意水準
-        #   @return [boolean] 検定結果(true:棄却域内 false:棄却域外)
-        def gnTest(statistic, n, a)
-            return @hypothTest.gnTest(statistic, n, a)
-        end
     end
     # 片側(右側)検定
     class RightSideTestLib
@@ -110,16 +101,6 @@ module Num4HypothTestLib
         def fDistTest(statistic, nf, df, a)
             return @hypothTest.fDistTest(statistic, nf, df, a)
         end
-        # グラブス・スミルノフの外れ値の検定
-        #
-        # @overload gnTest(statistic, n, a)
-        #   @param [double] statistic 検定統計量
-        #   @param [int]    n         自由度
-        #   @param [double] a         有意水準
-        #   @return [boolean] 検定結果(true:棄却域内 false:棄却域外)
-        def gnTest(statistic, n, a)
-            return @hypothTest.gnTest(statistic, n, a)
-        end
     end
     # 片側(左側)検定
     class LeftSideTestLib
@@ -165,6 +146,32 @@ module Num4HypothTestLib
         #   @return [boolean] 検定結果(true:棄却域内 false:棄却域外)
         def fDistTest(statistic, nf, df, a)
             return @hypothTest.fDistTest(statistic, nf, df, a)
+        end
+    end
+    # グラブス・スミルノフの外れ値の検定
+    class GrubbsTestLib
+        def initialize
+            @hypothTest = GrubbsTest.getInstance()
+        end
+        # 両側検定
+        #
+        # @overload twoSideTest(statistic, n, a)
+        #   @param [double] statistic 検定統計量
+        #   @param [int]    n         自由度
+        #   @param [double] a         有意水準
+        #   @return [boolean] 検定結果(true:棄却域内 false:棄却域外)
+        def twoSideTest(statistic, n, a)
+            return @hypothTest.twoSideTest(statistic, n, a)
+        end
+        # 片側検定
+        #
+        # @overload oneSideTest(statistic, n, a)
+        #   @param [double] statistic 検定統計量
+        #   @param [int]    n         自由度
+        #   @param [double] a         有意水準
+        #   @return [boolean] 検定結果(true:棄却域内 false:棄却域外)
+        def oneSideTest(statistic, n, a)
+            return @hypothTest.oneSideTest(statistic, n, a)
         end
     end
 end

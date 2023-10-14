@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+## [0.0.4] - 2023-10-13
+
+### change
+- chg gnTest 
+
 ## [0.0.3] - 2023-10-05
 
 ### change
