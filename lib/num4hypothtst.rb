@@ -55,6 +55,19 @@ module Num4HypothTestLib
         def fDistTest(statistic, nf, df, a)
             return @hypothTest.fDistTest(statistic, nf, df, a)
         end
+        # ウィルコクソン符号順位検定
+        #
+        # @overload wilcoxon(statistic, n, a)
+        #   @param [int] statistic ウィルコクソン符号順位の検定統計量
+        #   @param [int] n         データの個数
+        #   @param [double] a         有意水準
+        #   @return [boolean] 検定結果(true:棄却域内 false:棄却域外)
+        # @note
+        #   内部でN(0,1)に近似して検定
+        def wilcoxon(statistic, n, a)
+            return @hypothTest.wilcoxon(statistic, n, a)
+        end
+
     end
     # 片側(右側)検定
     class RightSideTestLib
@@ -101,6 +114,18 @@ module Num4HypothTestLib
         def fDistTest(statistic, nf, df, a)
             return @hypothTest.fDistTest(statistic, nf, df, a)
         end
+        # ウィルコクソン符号順位検定
+        #
+        # @overload wilcoxon(statistic, n, a)
+        #   @param [int] statistic ウィルコクソン符号順位の検定統計量
+        #   @param [int] n         データの個数
+        #   @param [double] a         有意水準
+        #   @return [boolean] 検定結果(true:棄却域内 false:棄却域外)
+        # @note
+        #   内部でN(0,1)に近似して検定
+        def wilcoxon(statistic, n, a)
+            return @hypothTest.wilcoxon(statistic, n, a)
+        end
     end
     # 片側(左側)検定
     class LeftSideTestLib
@@ -146,6 +171,18 @@ module Num4HypothTestLib
         #   @return [boolean] 検定結果(true:棄却域内 false:棄却域外)
         def fDistTest(statistic, nf, df, a)
             return @hypothTest.fDistTest(statistic, nf, df, a)
+        end
+        # ウィルコクソン符号順位検定
+        #
+        # @overload wilcoxon(statistic, n, a)
+        #   @param [int] statistic ウィルコクソン符号順位の検定統計量
+        #   @param [int] n         データの個数
+        #   @param [double] a         有意水準
+        #   @return [boolean] 検定結果(true:棄却域内 false:棄却域外)
+        # @note
+        #   内部でN(0,1)に近似して検定
+        def wilcoxon(statistic, n, a)
+            return @hypothTest.wilcoxon(statistic, n, a)
         end
     end
     # グラブス・スミルノフの外れ値の検定

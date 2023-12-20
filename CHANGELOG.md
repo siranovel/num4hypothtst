@@ -2,10 +2,15 @@
 
 ## Unreleased
 
+## [0.0.5] - 2023-12-19
+
+### add
+- add function of wilcoxon.
+
 ## [0.0.4] - 2023-10-13
 
 ### change
-- chg gnTest 
+- chg gnTest
 
 ## [0.0.3] - 2023-10-05
 
