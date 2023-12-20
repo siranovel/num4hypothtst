@@ -39,6 +39,15 @@ public class TwoSideTest implements HypothTest {
 
         return evaluation(statistic, l_val, r_val);
     }
+    public boolean wilcoxon(double statistic, int n, double a) {
+        boolean ret = true;
+        double e_t = n * (n  + 1.0) / 4.0;
+        double var_t = n * (n + 1.0) * (2.0 * n + 1.0) / 24.0;
+        double z = (statistic - e_t) / Math.sqrt(var_t);
+
+        return normDistTest(z, a);
+    }
+
     private boolean evaluation(double statistic, double l_val, double r_val) {
         boolean ret = true;
 

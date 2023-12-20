@@ -6,5 +6,6 @@ interface HypothTest {
     boolean chi2DistTest(double statistic, double df, double a);
     boolean normDistTest(double statistic, double a);
     boolean fDistTest(double statistic, double nf, double df, double a);
+    boolean wilcoxon(double statistic, int n, double a);
 }
 
