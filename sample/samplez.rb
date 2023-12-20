@@ -16,6 +16,9 @@ RSpec.describe Num4HypothTestLib do
         it '#fDistTest' do
             expect(hypothTest.fDistTest(0.4727, 11, 7, a)).to eq false
         end
+        it '#wilcoxon' do
+            expect(hypothTest.wilcoxon(99, 14, a)).to eq true
+        end
     end
     describe Num4HypothTestLib::RightSideTestLib do
         let!(:hypothTest) { Num4HypothTestLib::RightSideTestLib.new }
@@ -36,6 +39,9 @@ RSpec.describe Num4HypothTestLib do
         it '#fDistTest' do
             expect(hypothTest.fDistTest(0.4727, 11, 7, a)).to eq false
         end
+        it '#wilcoxon' do
+            expect(hypothTest.wilcoxon(99, 14, a)).to eq true
+        end
     end
     describe Num4HypothTestLib::LeftSideTestLib do
         let!(:hypothTest) { Num4HypothTestLib::LeftSideTestLib.new }
@@ -50,6 +56,9 @@ RSpec.describe Num4HypothTestLib do
         end
         it '#fDistTest' do
             expect(hypothTest.fDistTest(0.4727, 11, 7, a)).to eq false
+        end
+        it '#wilcoxon' do
+            expect(hypothTest.wilcoxon(99, 14, a)).to eq false
         end
     end
     describe Num4HypothTestLib::GrubbsTestLib do
