@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+## [0.0.6] - 2023-12-24
+
+### add
+- add function of utest.
+
 ## [0.0.5] - 2023-12-19
 
 ### add
