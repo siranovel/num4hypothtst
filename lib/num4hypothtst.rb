@@ -55,12 +55,26 @@ module Num4HypothTestLib
         def fDistTest(statistic, nf, df, a)
             return @hypothTest.fDistTest(statistic, nf, df, a)
         end
+        # マン・ホイットニーのU検定
+        #
+        # @overload utest(statistic, n1, n2, a)
+        #   @param [int] statistic マン・ホイットニーのU検定の検定統計量
+        #   @param [int] n1         データの個数
+        #   @param [int] n2         データの個数
+        #   @param [double] a       有意水準
+        #   @return [boolean] 検定結果(true:棄却域内 false:棄却域外)
+        # @note
+        #   内部でN(0,1)に近似して検定
+        def utest(statistic, n1, n2, a)
+            return @hypothTest.utest(statistic, n1, n2, a)
+        end
+        
         # ウィルコクソン符号順位検定
         #
         # @overload wilcoxon(statistic, n, a)
-        #   @param [int] statistic ウィルコクソン符号順位の検定統計量
+        #   @param [int] statistic ウィルコクソン符号順位検定の検定統計量
         #   @param [int] n         データの個数
-        #   @param [double] a         有意水準
+        #   @param [double] a      有意水準
         #   @return [boolean] 検定結果(true:棄却域内 false:棄却域外)
         # @note
         #   内部でN(0,1)に近似して検定
@@ -114,12 +128,25 @@ module Num4HypothTestLib
         def fDistTest(statistic, nf, df, a)
             return @hypothTest.fDistTest(statistic, nf, df, a)
         end
+        # マン・ホイットニーのU検定
+        #
+        # @overload utest(statistic, n1, n2, a)
+        #   @param [int] statistic マン・ホイットニーのU検定の検定統計量
+        #   @param [int] n1         データの個数
+        #   @param [int] n2         データの個数
+        #   @param [double] a       有意水準
+        #   @return [boolean] 検定結果(true:棄却域内 false:棄却域外)
+        # @note
+        #   内部でN(0,1)に近似して検定
+        def utest(statistic, n1, n2, a)
+            return @hypothTest.utest(statistic, n1, n2, a)
+        end
         # ウィルコクソン符号順位検定
         #
         # @overload wilcoxon(statistic, n, a)
         #   @param [int] statistic ウィルコクソン符号順位の検定統計量
         #   @param [int] n         データの個数
-        #   @param [double] a         有意水準
+        #   @param [double] a      有意水準
         #   @return [boolean] 検定結果(true:棄却域内 false:棄却域外)
         # @note
         #   内部でN(0,1)に近似して検定
@@ -172,12 +199,25 @@ module Num4HypothTestLib
         def fDistTest(statistic, nf, df, a)
             return @hypothTest.fDistTest(statistic, nf, df, a)
         end
+        # マン・ホイットニーのU検定
+        #
+        # @overload utest(statistic, n1, n2, a)
+        #   @param [int] statistic マン・ホイットニーのU検定の検定統計量
+        #   @param [int] n1         データの個数
+        #   @param [int] n2         データの個数
+        #   @param [double] a       有意水準
+        #   @return [boolean] 検定結果(true:棄却域内 false:棄却域外)
+        # @note
+        #   内部でN(0,1)に近似して検定
+        def utest(statistic, n1, n2, a)
+            return @hypothTest.utest(statistic, n1, n2, a)
+        end
         # ウィルコクソン符号順位検定
         #
         # @overload wilcoxon(statistic, n, a)
         #   @param [int] statistic ウィルコクソン符号順位の検定統計量
         #   @param [int] n         データの個数
-        #   @param [double] a         有意水準
+        #   @param [double] a      有意水準
         #   @return [boolean] 検定結果(true:棄却域内 false:棄却域外)
         # @note
         #   内部でN(0,1)に近似して検定
