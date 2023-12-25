@@ -34,11 +34,17 @@ public class RightSideTest implements HypothTest {
 
         return evaluation(statistic, r_val);
     }
+    public boolean utest(double statistic, int n1, int n2, double a) {
+        double e_u = n1 * n2 / 2.0;
+        double var_u = (n1 * n2 * (n1 + n2 + 1.0)) / 12.0;
+        double z = (statistic - e_u) / Math.sqrt(var_u);
+      
+        return normDistTest(z, a);
+    }
     public boolean wilcoxon(double statistic, int n, double a) {
-        boolean ret = true;
-        double e_t = n * (n  + 1.0) / 4.0;
-        double var_t = n * (n + 1.0) * (2.0 * n + 1.0) / 24.0;
-        double z = (statistic - e_t) / Math.sqrt(var_t);
+        double e_w = n * (n  + 1.0) / 4.0;
+        double var_w = n * (n + 1.0) * (2.0 * n + 1.0) / 24.0;
+        double z = (statistic - e_w) / Math.sqrt(var_w);
 
         return normDistTest(z, a);
     }
