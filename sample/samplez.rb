@@ -16,11 +16,9 @@ RSpec.describe Num4HypothTestLib do
         it '#fDistTest' do
             expect(hypothTest.fDistTest(0.4727, 11, 7, a)).to eq false
         end
-        it '#utest' do
-            expect(hypothTest.utest(63.0, 12, 8, a)).to eq false
-        end
-        it '#wilcoxon' do
-            expect(hypothTest.wilcoxon(46.5, 10, a)).to eq false
+
+        it '#populationCorre' do
+            expect(hypothTest.populationCorre(-0.76655, 12, -0.3, a)).to eq true
         end
     end
     describe Num4HypothTestLib::RightSideTestLib do
@@ -28,7 +26,6 @@ RSpec.describe Num4HypothTestLib do
         it '#tDistTest' do
             expect(hypothTest.tDistTest(1.6154, 5, a)).to eq false
             expect(hypothTest.tDistTest(2.283, 9, a)).to eq true
-
         end
         it '#chi2DistTest' do
             expect(hypothTest.chi2DistTest(2.9064, 9, a)).to eq false
@@ -42,11 +39,9 @@ RSpec.describe Num4HypothTestLib do
         it '#fDistTest' do
             expect(hypothTest.fDistTest(0.4727, 11, 7, a)).to eq false
         end
-        it '#utest' do
-            expect(hypothTest.utest(63.0, 12, 8, a)).to eq false
-        end
-        it '#wilcoxon' do
-            expect(hypothTest.wilcoxon(46.5, 10, a)).to eq true
+
+        it '#populationCorre' do
+            expect(hypothTest.populationCorre(-0.76655, 12, -0.3, a)).to eq false
         end
     end
     describe Num4HypothTestLib::LeftSideTestLib do
@@ -63,11 +58,9 @@ RSpec.describe Num4HypothTestLib do
         it '#fDistTest' do
             expect(hypothTest.fDistTest(0.4727, 11, 7, a)).to eq false
         end
-        it '#utest' do
-            expect(hypothTest.utest(63.0, 12, 8, a)).to eq false
-        end
-        it '#wilcoxon' do
-            expect(hypothTest.wilcoxon(46.5, 10, a)).to eq false
+
+        it '#populationCorre' do
+            expect(hypothTest.populationCorre(-0.76655, 12, -0.3, a)).to eq true
         end
     end
     describe Num4HypothTestLib::GrubbsTestLib do
@@ -79,5 +72,12 @@ RSpec.describe Num4HypothTestLib do
             expect(hypothTest.oneSideTest(2.3724, 8, a)).to eq true
         end
     end
+    describe Num4HypothTestLib::DecorrTestLib do
+        let!(:hypothTest) { Num4HypothTestLib::DecorrTestLib.new }
+        it '#twoSideTest' do
+            expect(hypothTest.twoSideTest(0.761, 9, a)).to eq true
+        end
+    end
+    
 end
 
