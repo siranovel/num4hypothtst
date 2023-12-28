@@ -5,10 +5,10 @@ import org.apache.commons.math3.distribution.ChiSquaredDistribution;
 import org.apache.commons.math3.distribution.NormalDistribution;
 import org.apache.commons.math3.distribution.FDistribution;
 // 片側検定(右側)
-public class RightSideTest implements HypothTest {
-    private static HypothTest hupothTest = new RightSideTest();
-    public static HypothTest getInstance() {
-        return hupothTest;
+public class RightSideTest implements HypothTest3 {
+    private static HypothTest3 hypothTest3 = new RightSideTest();
+    public static HypothTest3 getInstance() {
+        return hypothTest3;
     }
     public boolean tDistTest(double statistic, double df, double a) {
         TDistribution tDist = new TDistribution(df);
@@ -34,14 +34,16 @@ public class RightSideTest implements HypothTest {
 
         return evaluation(statistic, r_val);
     }
-    public boolean wilcoxon(double statistic, int n, double a) {
-        boolean ret = true;
-        double e_t = n * (n  + 1.0) / 4.0;
-        double var_t = n * (n + 1.0) * (2.0 * n + 1.0) / 24.0;
-        double z = (statistic - e_t) / Math.sqrt(var_t);
+    public boolean populationCorre(double r, int n, double rth0, double a) {
+       double statistic = Math.sqrt(n-3.0) * 
+               (
+               0.5 * Math.log((1.0 + r) / (1.0 - r)) 
+             - 0.5 * Math.log((1.0 + rth0) / (1.0 - rth0))
+               );
 
-        return normDistTest(z, a);
+        return normDistTest(statistic, a);
     }
+
     private boolean evaluation(double statistic, double r_val) {
         boolean ret = true;
 
