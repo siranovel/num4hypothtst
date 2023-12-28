@@ -6,6 +6,7 @@ java_import 'hypothtst.TwoSideTest'
 java_import 'hypothtst.RightSideTest'
 java_import 'hypothtst.LeftSideTest'
 java_import 'hypothtst.GrubbsTest'
+java_import 'hypothtst.DecorrTest'
 
 # 統計的仮設検定のためのライブラリ
 #  (Apache commoms math3使用)
@@ -13,7 +14,7 @@ module Num4HypothTestLib
     # 両側検定
     class TwoSideTestLib
         def initialize
-            @hypothTest = TwoSideTest.getInstance()
+            @hypothTest3 = TwoSideTest.getInstance()
         end
         # T検定
         #
@@ -23,7 +24,7 @@ module Num4HypothTestLib
         #   @param [double] a         有意水準
         #   @return [boolean] 検定結果(true:棄却域内 false:棄却域外)
         def tDistTest(statistic, df, a)
-            return @hypothTest.tDistTest(statistic, df, a)
+            return @hypothTest3.tDistTest(statistic, df, a)
         end
         # 階2乗検定
         #
@@ -33,7 +34,7 @@ module Num4HypothTestLib
         #   @param [double] a         有意水準
         #   @return [boolean] 検定結果(true:棄却域内 false:棄却域外)
         def chi2DistTest(statistic, df, a)
-            return @hypothTest.chi2DistTest(statistic, df, a)
+            return @hypothTest3.chi2DistTest(statistic, df, a)
         end
         # 標準正規分布検定
         #
@@ -42,7 +43,7 @@ module Num4HypothTestLib
         #   @param [double] a         有意水準
         #   @return [boolean] 検定結果(true:棄却域内 false:棄却域外)
         def normDistTest(statistic, a)
-            return @hypothTest.normDistTest(statistic, a)
+            return @hypothTest3.normDistTest(statistic, a)
         end
         # F検定
         #
@@ -53,40 +54,26 @@ module Num4HypothTestLib
         #   @param [double] a         有意水準
         #   @return [boolean] 検定結果(true:棄却域内 false:棄却域外)
         def fDistTest(statistic, nf, df, a)
-            return @hypothTest.fDistTest(statistic, nf, df, a)
-        end
-        # マン・ホイットニーのU検定
-        #
-        # @overload utest(statistic, n1, n2, a)
-        #   @param [int] statistic マン・ホイットニーのU検定の検定統計量
-        #   @param [int] n1         データの個数
-        #   @param [int] n2         データの個数
-        #   @param [double] a       有意水準
-        #   @return [boolean] 検定結果(true:棄却域内 false:棄却域外)
-        # @note
-        #   内部でN(0,1)に近似して検定
-        def utest(statistic, n1, n2, a)
-            return @hypothTest.utest(statistic, n1, n2, a)
-        end
-        
-        # ウィルコクソン符号順位検定
-        #
-        # @overload wilcoxon(statistic, n, a)
-        #   @param [int] statistic ウィルコクソン符号順位検定の検定統計量
-        #   @param [int] n         データの個数
-        #   @param [double] a      有意水準
-        #   @return [boolean] 検定結果(true:棄却域内 false:棄却域外)
-        # @note
-        #   内部でN(0,1)に近似して検定
-        def wilcoxon(statistic, n, a)
-            return @hypothTest.wilcoxon(statistic, n, a)
+            return @hypothTest3.fDistTest(statistic, nf, df, a)
         end
 
+        # 母相関係数の検定量
+        #
+        # @overload populationCorre(r, n, rth0, a)
+        #   @param [double] r    標本相関係数
+        #   @param [int]    n    自由度
+        #   @param [double] rth0 母相関係数
+        #   @return [boolean] 検定結果(true:棄却域内 false:棄却域外)
+        # @note
+        #   標準正規分布 N(0,1*1)に従う(近似的)
+        def populationCorre(r, n, rth0, a)
+            return @hypothTest3.populationCorre(r, n, rth0, a);
+        end
     end
     # 片側(右側)検定
     class RightSideTestLib
         def initialize
-            @hypothTest = RightSideTest.getInstance()
+            @hypothTest3 = RightSideTest.getInstance()
         end
         # T検定
         #
@@ -96,7 +83,7 @@ module Num4HypothTestLib
         #   @param [double] a         有意水準
         #   @return [boolean] 検定結果(true:棄却域内 false:棄却域外)
         def tDistTest(statistic, df, a)
-            return @hypothTest.tDistTest(statistic, df, a)
+            return @hypothTest3.tDistTest(statistic, df, a)
         end
         # 階2乗検定
         #
@@ -106,7 +93,7 @@ module Num4HypothTestLib
         #   @param [double] a         有意水準
         #   @return [boolean] 検定結果(true:棄却域内 false:棄却域外)
         def chi2DistTest(statistic, df, a)
-            return @hypothTest.chi2DistTest(statistic, df, a)
+            return @hypothTest3.chi2DistTest(statistic, df, a)
         end
         # 標準正規分布検定
         #
@@ -115,7 +102,7 @@ module Num4HypothTestLib
         #   @param [double] a         有意水準
         #   @return [boolean] 検定結果(true:棄却域内 false:棄却域外)
         def normDistTest(statistic, a)
-            return @hypothTest.normDistTest(statistic, a)
+            return @hypothTest3.normDistTest(statistic, a)
         end
         # F検定
         #
@@ -126,38 +113,26 @@ module Num4HypothTestLib
         #   @param [double] a         有意水準
         #   @return [boolean] 検定結果(true:棄却域内 false:棄却域外)
         def fDistTest(statistic, nf, df, a)
-            return @hypothTest.fDistTest(statistic, nf, df, a)
+            return @hypothTest3.fDistTest(statistic, nf, df, a)
         end
-        # マン・ホイットニーのU検定
+
+        # 母相関係数の検定量
         #
-        # @overload utest(statistic, n1, n2, a)
-        #   @param [int] statistic マン・ホイットニーのU検定の検定統計量
-        #   @param [int] n1         データの個数
-        #   @param [int] n2         データの個数
-        #   @param [double] a       有意水準
+        # @overload populationCorre(r, n, rth0, a)
+        #   @param [double] r    標本相関係数
+        #   @param [int]    n    自由度
+        #   @param [double] rth0 母相関係数
         #   @return [boolean] 検定結果(true:棄却域内 false:棄却域外)
         # @note
-        #   内部でN(0,1)に近似して検定
-        def utest(statistic, n1, n2, a)
-            return @hypothTest.utest(statistic, n1, n2, a)
-        end
-        # ウィルコクソン符号順位検定
-        #
-        # @overload wilcoxon(statistic, n, a)
-        #   @param [int] statistic ウィルコクソン符号順位の検定統計量
-        #   @param [int] n         データの個数
-        #   @param [double] a      有意水準
-        #   @return [boolean] 検定結果(true:棄却域内 false:棄却域外)
-        # @note
-        #   内部でN(0,1)に近似して検定
-        def wilcoxon(statistic, n, a)
-            return @hypothTest.wilcoxon(statistic, n, a)
+        #   標準正規分布 N(0,1*1)に従う(近似的)
+        def populationCorre(r, n, rth0, a)
+            return @hypothTest3.populationCorre(r, n, rth0, a);
         end
     end
     # 片側(左側)検定
     class LeftSideTestLib
         def initialize
-            @hypothTest = LeftSideTest.getInstance()
+            @hypothTest3 = LeftSideTest.getInstance()
         end
         # T検定
         #
@@ -167,7 +142,7 @@ module Num4HypothTestLib
         #   @param [double] a         有意水準
         #   @return [boolean] 検定結果(true:棄却域内 false:棄却域外)
         def tDistTest(statistic, df, a)
-            return @hypothTest.tDistTest(statistic, df, a)
+            return @hypothTest3.tDistTest(statistic, df, a)
         end
         # 階2乗検定
         #
@@ -177,7 +152,7 @@ module Num4HypothTestLib
         #   @param [double] a         有意水準
         #   @return [boolean] 検定結果(true:棄却域内 false:棄却域外)
         def chi2DistTest(statistic, df, a)
-            return @hypothTest.chi2DistTest(statistic, df, a)
+            return @hypothTest3.chi2DistTest(statistic, df, a)
         end
         # 標準正規分布検定
         #
@@ -186,7 +161,7 @@ module Num4HypothTestLib
         #   @param [double] a         有意水準
         #   @return [boolean] 検定結果(true:棄却域内 false:棄却域外)
         def normDistTest(statistic, a)
-            return @hypothTest.normDistTest(statistic, a)
+            return @hypothTest3.normDistTest(statistic, a)
         end
         # F検定
         #
@@ -197,38 +172,26 @@ module Num4HypothTestLib
         #   @param [double] a         有意水準
         #   @return [boolean] 検定結果(true:棄却域内 false:棄却域外)
         def fDistTest(statistic, nf, df, a)
-            return @hypothTest.fDistTest(statistic, nf, df, a)
+            return @hypothTest3.fDistTest(statistic, nf, df, a)
         end
-        # マン・ホイットニーのU検定
+
+        # 母相関係数の検定量
         #
-        # @overload utest(statistic, n1, n2, a)
-        #   @param [int] statistic マン・ホイットニーのU検定の検定統計量
-        #   @param [int] n1         データの個数
-        #   @param [int] n2         データの個数
-        #   @param [double] a       有意水準
+        # @overload populationCorre(r, n, rth0, a)
+        #   @param [double] r    標本相関係数
+        #   @param [int]    n    自由度
+        #   @param [double] rth0 母相関係数
         #   @return [boolean] 検定結果(true:棄却域内 false:棄却域外)
         # @note
-        #   内部でN(0,1)に近似して検定
-        def utest(statistic, n1, n2, a)
-            return @hypothTest.utest(statistic, n1, n2, a)
-        end
-        # ウィルコクソン符号順位検定
-        #
-        # @overload wilcoxon(statistic, n, a)
-        #   @param [int] statistic ウィルコクソン符号順位の検定統計量
-        #   @param [int] n         データの個数
-        #   @param [double] a      有意水準
-        #   @return [boolean] 検定結果(true:棄却域内 false:棄却域外)
-        # @note
-        #   内部でN(0,1)に近似して検定
-        def wilcoxon(statistic, n, a)
-            return @hypothTest.wilcoxon(statistic, n, a)
+        #   標準正規分布 N(0,1*1)に従う(近似的)
+        def populationCorre(r, n, rth0, a)
+            return @hypothTest3.populationCorre(r, n, rth0, a);
         end
     end
     # グラブス・スミルノフの外れ値の検定
     class GrubbsTestLib
         def initialize
-            @hypothTest = GrubbsTest.getInstance()
+            @hypothTest2 = GrubbsTest.getInstance()
         end
         # 両側検定
         #
@@ -238,7 +201,7 @@ module Num4HypothTestLib
         #   @param [double] a         有意水準
         #   @return [boolean] 検定結果(true:棄却域内 false:棄却域外)
         def twoSideTest(statistic, n, a)
-            return @hypothTest.twoSideTest(statistic, n, a)
+            return @hypothTest2.twoSideTest(statistic, n, a)
         end
         # 片側検定
         #
@@ -248,7 +211,23 @@ module Num4HypothTestLib
         #   @param [double] a         有意水準
         #   @return [boolean] 検定結果(true:棄却域内 false:棄却域外)
         def oneSideTest(statistic, n, a)
-            return @hypothTest.oneSideTest(statistic, n, a)
+            return @hypothTest2.oneSideTest(statistic, n, a)
+        end
+    end
+    # 無相関の検定
+    class DecorrTestLib
+        def initialize
+            @hypothTest = DecorrTest.getInstance()
+        end
+        # 両側検定
+        #
+        # @overload twoSideTest(r, n, a)
+        #   @param [double] r         相関係数
+        #   @param [int]    n         自由度
+        #   @param [double] a         有意水準
+        #   @return [boolean] 検定結果(true:棄却域内 false:棄却域外)
+        def twoSideTest(r, n, a)
+            return @hypothTest.twoSideTest(r, n, a)
         end
     end
 end
