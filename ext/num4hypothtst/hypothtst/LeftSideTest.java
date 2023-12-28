@@ -6,10 +6,10 @@ import org.apache.commons.math3.distribution.NormalDistribution;
 import org.apache.commons.math3.distribution.FDistribution;
 
 // 片側検定(左側)
-public class LeftSideTest implements HypothTest {
-    private static HypothTest hupothTest = new LeftSideTest();
-    public static HypothTest getInstance() {
-        return hupothTest;
+public class LeftSideTest implements HypothTest3 {
+    private static HypothTest3 hypothTest3 = new LeftSideTest();
+    public static HypothTest3 getInstance() {
+        return hypothTest3;
     }
     public boolean tDistTest(double statistic, double df, double a) {
         TDistribution tDist = new TDistribution(df);
@@ -35,22 +35,16 @@ public class LeftSideTest implements HypothTest {
 
         return evaluation(statistic, l_val);
     }
-    public boolean utest(double statistic, int n1, int n2, double a) {
-        double e_u = n1 * n2 / 2.0;
-        double var_u = (n1 * n2 * (n1 + n2 + 1.0)) / 12.0;
-        double z = (statistic - e_u) / Math.sqrt(var_u);
-      
-        return normDistTest(z, a);
+    public boolean populationCorre(double r, int n, double rth0, double a) {
+        double statistic = Math.sqrt(n-3.0) * 
+               (
+               0.5 * Math.log((1.0 + r) / (1.0 - r)) 
+             - 0.5 * Math.log((1.0 + rth0) / (1.0 - rth0))
+               );
+
+        return normDistTest(statistic, a);
     }
-
-    public boolean wilcoxon(double statistic, int n, double a) {
-        double e_w = n * (n  + 1.0) / 4.0;
-        double var_w = n * (n + 1.0) * (2.0 * n + 1.0) / 24.0;
-        double z = (statistic - e_w) / Math.sqrt(var_w);
-
-        return normDistTest(z, a);
-    }
-
+    
     private boolean evaluation(double statistic, double l_val) {
         boolean ret = true;
 
