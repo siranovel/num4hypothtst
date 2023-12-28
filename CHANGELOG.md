@@ -2,10 +2,14 @@
 
 ## Unreleased
 
-## [0.0.6] - 2023-12-24
+## [0.0.6] - 2023-12-27
+
+### delete
+- del function of wilcoxon.
 
 ### add
-- add function of utest.
+- add function of decorrelation.
+- add function of populationCorre.
 
 ## [0.0.5] - 2023-12-19
 
