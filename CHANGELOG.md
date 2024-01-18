@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+## [0.0.7] - 2024-01-08
+
+### change
+- function of gntest is bug fix.
+
 ## [0.0.6] - 2023-12-27
 
 ### delete
