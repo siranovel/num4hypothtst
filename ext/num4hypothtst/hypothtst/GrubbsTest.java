@@ -17,7 +17,7 @@ public class GrubbsTest implements HypothTest2 {
     }
 
     private double calcGnValue(int n, double a) {
-        TDistribution tDist = new TDistribution(n);
+        TDistribution tDist = new TDistribution(n - 2);
         double t = tDist.inverseCumulativeProbability(a / n);
         double gn = (n - 1) * t / Math.sqrt(n * (n - 2 + t * t));
 
