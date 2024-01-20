@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+## [0.0.8] - 2024-01-19
+
+### change
+- change function of populationCorre.
+
 ## [0.0.7] - 2024-01-08
 
 ### change
