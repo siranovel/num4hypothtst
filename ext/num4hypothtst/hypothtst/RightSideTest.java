@@ -34,15 +34,6 @@ public class RightSideTest implements HypothTest3 {
 
         return evaluation(statistic, r_val);
     }
-    public boolean populationCorre(double r, int n, double rth0, double a) {
-       double statistic = Math.sqrt(n-3.0) * 
-               (
-               0.5 * Math.log((1.0 + r) / (1.0 - r)) 
-             - 0.5 * Math.log((1.0 + rth0) / (1.0 - rth0))
-               );
-
-        return normDistTest(statistic, a);
-    }
 
     private boolean evaluation(double statistic, double r_val) {
         boolean ret = true;
