@@ -1,6 +1,7 @@
 require 'java'
 require 'num4hypothtst.jar'
 require 'commons-math3-3.6.1.jar'
+require_relative('hypothTest3')
 
 java_import 'hypothtst.TwoSideTest'
 java_import 'hypothtst.RightSideTest'
@@ -12,7 +13,7 @@ java_import 'hypothtst.DecorrTest'
 #  (Apache commoms math3使用)
 module Num4HypothTestLib
     # 両側検定
-    class TwoSideTestLib
+    class TwoSideTestLib < HypothTest3IF
         def initialize
             @hypothTest3 = TwoSideTest.getInstance()
         end
@@ -71,7 +72,7 @@ module Num4HypothTestLib
         end
     end
     # 片側(右側)検定
-    class RightSideTestLib
+    class RightSideTestLib < HypothTest3IF
         def initialize
             @hypothTest3 = RightSideTest.getInstance()
         end
@@ -130,7 +131,7 @@ module Num4HypothTestLib
         end
     end
     # 片側(左側)検定
-    class LeftSideTestLib
+    class LeftSideTestLib < HypothTest3IF
         def initialize
             @hypothTest3 = LeftSideTest.getInstance()
         end
@@ -181,6 +182,7 @@ module Num4HypothTestLib
         #   @param [double] r    標本相関係数
         #   @param [int]    n    自由度
         #   @param [double] rth0 母相関係数
+        #   @param [double] a         有意水準
         #   @return [boolean] 検定結果(true:棄却域内 false:棄却域外)
         # @note
         #   標準正規分布 N(0,1*1)に従う(近似的)

@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+## [0.1.1] - 2024-04-17
+
+### add
+- add intercase HypothTest3IF.
+
 ## [0.0.8] - 2024-01-19
 
 ### change
