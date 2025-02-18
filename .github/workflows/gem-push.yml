@@ -22,7 +22,8 @@ jobs:
       run: |
         gem build *.gemspec
         gem install *.gem
-        rspec sample/samplez.rb
+        rake -f hypottst spec
+        #rspec sample/samplez.rb
   deploy:
     name: Publish
     runs-on: ubuntu-latest
