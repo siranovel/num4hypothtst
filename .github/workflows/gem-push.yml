@@ -22,6 +22,7 @@ jobs:
       run: |
         gem build *.gemspec
         gem install *.gem
+        cd sample
         rake -f hypottst spec
         #rspec sample/samplez.rb
   deploy:
