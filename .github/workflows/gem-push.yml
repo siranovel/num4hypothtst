@@ -23,7 +23,7 @@ jobs:
         gem build *.gemspec
         gem install *.gem
         cd sample
-        rake -f hypottst spec
+        rake -f hypottst.rk spec
         #rspec sample/samplez.rb
   deploy:
     name: Publish
