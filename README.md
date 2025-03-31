@@ -4,7 +4,7 @@ num4hypothtst
 
 ## decscription ##
 
-詳細は、https://siranovel.github.io/mydocs/num4hypothtst
+詳細は、https://siranovel.github.io/mydocs/num4hypothtst  
 
 ## Demo ##
 
@@ -16,7 +16,7 @@ ruby rake-compilerライブラリ
 
 ## Usage ##
 
-sample/samplez.rbファイルを参照
+sample/spec内の各ファイル参照
 
 ## install ##
 
