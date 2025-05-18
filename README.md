@@ -25,12 +25,19 @@ From rubygems:
     [sudo] gem install num4hypothtst
 ~~~
 
+Install via Gemfile:  
+~~~
+source "https://rubygems.pkg.github.com/siranovel" do
+    gem "num4hypothtst"
+end
+~~~
+
 or from the git repository on github:  
 ~~~
     git clone https://github.com/siranovel/num4hypothtst.git  
     cd num4hypothtst  
-    gem build *.gemspec
-    gem install *.gem
+    gem build num4hypothtst.gemspec
+    gem install num4hypothtst
 ~~~
 
 ## Contribution ##
