@@ -21,6 +21,10 @@ RSpec.describe Num4HypothTestLib do
         it '#populationCorre' do
             expect(hypothTest.populationCorre(-0.76655, 12, -0.3, a)).to eq true
         end
+        it '#diffPopulationCorre' do
+            expect(hypothTest.diffPopulationCorre(0.8945, 20, 0.5192, 18, a)).to eq true
+        end
+
     end
     describe Num4HypothTestLib::RightSideTestLib do
         let!(:hypothTest) { Num4HypothTestLib::RightSideTestLib.new }
@@ -44,7 +48,10 @@ RSpec.describe Num4HypothTestLib do
         it '#populationCorre' do
             expect(hypothTest.populationCorre(-0.76655, 12, -0.3, a)).to eq false
         end
-    end
+         it '#diffPopulationCorre' do
+            expect(hypothTest.diffPopulationCorre(0.8945, 20, 0.5192, 18, a)).to eq true
+        end
+  end
     describe Num4HypothTestLib::LeftSideTestLib do
         let!(:hypothTest) { Num4HypothTestLib::LeftSideTestLib.new }
         it '#tDistTest' do
@@ -63,7 +70,10 @@ RSpec.describe Num4HypothTestLib do
         it '#populationCorre' do
             expect(hypothTest.populationCorre(-0.76655, 12, -0.3, a)).to eq true
         end
-    end
+         it '#diffPopulationCorre' do
+            expect(hypothTest.diffPopulationCorre(0.8945, 20, 0.5192, 18, a)).to eq false
+        end
+  end
     describe Num4HypothTestLib::GrubbsTestLib do
         let!(:hypothTest) { Num4HypothTestLib::GrubbsTestLib.new }
         it '#twoSideTest' do
