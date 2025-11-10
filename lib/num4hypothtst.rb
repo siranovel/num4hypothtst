@@ -64,11 +64,26 @@ module Num4HypothTestLib
         #   @param [double] r    標本相関係数
         #   @param [int]    n    自由度
         #   @param [double] rth0 母相関係数
+        #   @param [double] a         有意水準
         #   @return [boolean] 検定結果(true:棄却域内 false:棄却域外)
         # @note
         #   標準正規分布 N(0,1*1)に従う(近似的)
         def populationCorre(r, n, rth0, a)
             return @hypothTest3.populationCorre(r, n, rth0, a);
+        end
+        # 母相関係数の差の検定(対応のない場合)
+        #
+        # @overload diffPopulationCorre(r1, n1, r2, n2, a)
+        #   @param [double] r1    標本相関係数
+        #   @param [int]    n1    自由度
+        #   @param [double] r2    標本相関係数
+        #   @param [int]    n2    自由度
+        #   @param [double] a         有意水準
+        #   @return [boolean] 検定結果(true:棄却域内 false:棄却域外)
+        # @note
+        #   標準正規分布 N(0,1*1)に従う(近似的)
+        def diffPopulationCorre(r1, n1, r2, n2, a)
+            return @hypothTest3.diffPopulationCorre(r1, n1, r2, n2, a);
         end
     end
     # 片側(右側)検定
@@ -129,6 +144,20 @@ module Num4HypothTestLib
         def populationCorre(r, n, rth0, a)
             return @hypothTest3.populationCorre(r, n, rth0, a);
         end
+        # 母相関係数の差の検定(対応のない場合)
+        #
+        # @overload diffPopulationCorre(r1, n1, r2, n2, a)
+        #   @param [double] r1    標本相関係数
+        #   @param [int]    n1    自由度
+        #   @param [double] r2    標本相関係数
+        #   @param [int]    n2    自由度
+        #   @param [double] a         有意水準
+        #   @return [boolean] 検定結果(true:棄却域内 false:棄却域外)
+        # @note
+        #   標準正規分布 N(0,1*1)に従う(近似的)
+        def diffPopulationCorre(r1, n1, r2, n2, a)
+            return @hypothTest3.diffPopulationCorre(r1, n1, r2, n2, a);
+        end
     end
     # 片側(左側)検定
     class LeftSideTestLib < HypothTest3IF
@@ -188,6 +217,20 @@ module Num4HypothTestLib
         #   標準正規分布 N(0,1*1)に従う(近似的)
         def populationCorre(r, n, rth0, a)
             return @hypothTest3.populationCorre(r, n, rth0, a);
+        end
+        # 母相関係数の差の検定(対応のない場合)
+        #
+        # @overload diffPopulationCorre(r1, n1, r2, n2, a)
+        #   @param [double] r1    標本相関係数
+        #   @param [int]    n1    自由度
+        #   @param [double] r2    標本相関係数
+        #   @param [int]    n2    自由度
+        #   @param [double] a         有意水準
+        #   @return [boolean] 検定結果(true:棄却域内 false:棄却域外)
+        # @note
+        #   標準正規分布 N(0,1*1)に従う(近似的)
+        def diffPopulationCorre(r1, n1, r2, n2, a)
+            return @hypothTest3.diffPopulationCorre(r1, n1, r2, n2, a);
         end
     end
     # グラブス・スミルノフの外れ値の検定

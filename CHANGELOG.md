@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+## [0.2.2] - 2025-11-07
+### add
+- add function of diffPopulationCorre.
+
 ## [0.2.1] - 2025-05-15
 ### add
 - add required_ruby_version in gemspec file.
